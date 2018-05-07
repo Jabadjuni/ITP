@@ -1,0 +1,11 @@
+D:\Code\Repositories\ITP\ITP\ITP\bin\Debug\netcoreapp2.0\ITP.deps.json
+D:\Code\Repositories\ITP\ITP\ITP\bin\Debug\netcoreapp2.0\ITP.runtimeconfig.json
+D:\Code\Repositories\ITP\ITP\ITP\bin\Debug\netcoreapp2.0\ITP.runtimeconfig.dev.json
+D:\Code\Repositories\ITP\ITP\ITP\bin\Debug\netcoreapp2.0\ITP.dll
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.csprojResolveAssemblyReference.cache
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.csproj.CoreCompileInputs.cache
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.AssemblyInfoInputs.cache
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.AssemblyInfo.cs
+D:\Code\Repositories\ITP\ITP\ITP\bin\Debug\netcoreapp2.0\ITP.pdb
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.dll
+D:\Code\Repositories\ITP\ITP\ITP\obj\Debug\netcoreapp2.0\ITP.pdb

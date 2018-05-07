@@ -1,0 +1,15 @@
+﻿@model IEnumerable<ITP.Models.About>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>About</h2>
+@foreach (var item in Model)
+{
+<p>
+    This is the Internet Technology semester project of @Html.DisplayFor(modelItem => item.Name), aged @Html.DisplayFor(modelItem => item.Age).
+
+</p>
+}
+
