@@ -10,22 +10,29 @@ using ITP.Models;
 
 namespace ITP.Controllers
 {
-    public class AboutsController : Controller
+    public class PhotosController : Controller
     {
         private readonly BaseContext _context;
 
-        public AboutsController(BaseContext context)
+        public PhotosController(BaseContext context)
         {
             _context = context;
         }
 
-        // GET: Abouts
+        // GET: Photos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.AboutTable.ToListAsync());
+            return View(await _context.Photos.ToListAsync());
         }
 
-        // GET: Abouts/Details/5
+        // GET: Photos/Gallery
+        public async Task<IActionResult> Gallery()
+        {
+            return View(await _context.Photos.ToListAsync());
+        }
+
+
+        // GET: Photos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,18 +40,39 @@ namespace ITP.Controllers
                 return NotFound();
             }
 
-            var about = await _context.AboutTable
+            var photo = await _context.Photos
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (about == null)
+            if (photo == null)
             {
                 return NotFound();
             }
 
-            return View(about);
+            return View(photo);
         }
 
+        // GET: Photos/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        // GET: Abouts/Edit/5
+        // POST: Photos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,Url")] Photo photo)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(photo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(photo);
+        }
+
+        // GET: Photos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -52,22 +80,22 @@ namespace ITP.Controllers
                 return NotFound();
             }
 
-            var about = await _context.AboutTable.SingleOrDefaultAsync(m => m.ID == id);
-            if (about == null)
+            var photo = await _context.Photos.SingleOrDefaultAsync(m => m.ID == id);
+            if (photo == null)
             {
                 return NotFound();
             }
-            return View(about);
+            return View(photo);
         }
 
-        // POST: Abouts/Edit/5
+        // POST: Photos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Age")] About about)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Url")] Photo photo)
         {
-            if (id != about.ID)
+            if (id != photo.ID)
             {
                 return NotFound();
             }
@@ -76,12 +104,12 @@ namespace ITP.Controllers
             {
                 try
                 {
-                    _context.Update(about);
+                    _context.Update(photo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AboutExists(about.ID))
+                    if (!PhotoExists(photo.ID))
                     {
                         return NotFound();
                     }
@@ -92,10 +120,10 @@ namespace ITP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(about);
+            return View(photo);
         }
 
-        // GET: Abouts/Delete/5
+        // GET: Photos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -103,30 +131,30 @@ namespace ITP.Controllers
                 return NotFound();
             }
 
-            var about = await _context.AboutTable
+            var photo = await _context.Photos
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (about == null)
+            if (photo == null)
             {
                 return NotFound();
             }
 
-            return View(about);
+            return View(photo);
         }
 
-        // POST: Abouts/Delete/5
+        // POST: Photos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var about = await _context.AboutTable.SingleOrDefaultAsync(m => m.ID == id);
-            _context.AboutTable.Remove(about);
+            var photo = await _context.Photos.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Photos.Remove(photo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AboutExists(int id)
+        private bool PhotoExists(int id)
         {
-            return _context.AboutTable.Any(e => e.ID == id);
+            return _context.Photos.Any(e => e.ID == id);
         }
     }
 }

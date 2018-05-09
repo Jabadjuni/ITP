@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ITP.Models.Photo>
+
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+
+<table class="table">
+    <thead>
+        Enjoy our lovely gallery! More photos can be added on the administration page.
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="
+                @Html.DisplayFor(modelItem => item.Url)
+                     ">
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

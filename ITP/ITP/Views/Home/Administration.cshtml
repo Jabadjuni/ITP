@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Administration";
+}
+<h2>@ViewData["Title"]</h2>
+
+<p>Use the following options to alter the content on the site.</p>
+
+
+<p>
+    <a asp-area="" asp-controller="Photos" asp-action="Create">Edit or add to the gallery</a>
+</p>
+<p>
+    <a asp-area="" asp-controller="Abouts" asp-action="Edit" asp-route-id="1">Edit 'About' page</a>
+</p>
+<p>
+    <a asp-area="" asp-controller="Signups" asp-action="Index">View list of subscribed emails, because thats good practice to publicly show.</a>
+</p>

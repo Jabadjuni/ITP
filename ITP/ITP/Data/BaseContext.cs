@@ -15,11 +15,11 @@ namespace ITP.Data
 
         public DbSet<About> AboutTable { get; set; }
         public DbSet<Signup> Signups { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<About>().ToTable("About");
-            modelBuilder.Entity<Signup>().ToTable("Signups");
         }
     }
 }
